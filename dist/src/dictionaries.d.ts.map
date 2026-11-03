@@ -1,0 +1,1 @@
+{"version":3,"file":"dictionaries.d.ts","sourceRoot":"","sources":["../../src/dictionaries.ts"],"names":[],"mappings":"AAKA,KAAK,iBAAiB,GAAG;IACvB,CAAC,GAAG,EAAE,MAAM,GAAG,MAAM,GAAG,iBAAiB,CAAC;CAC3C,CAAC;AAcF,eAAO,MAAM,oCAAoC,WACvC,MAAM,iBACC,MAAM,uBACA,MAAM,CAAC,MAAM,EAAE,MAAM,OAAO,CAAC,iBAAiB,CAAC,GAAG,iBAAiB,CAAC,EAAE,+BAiB5F,CAAC"}

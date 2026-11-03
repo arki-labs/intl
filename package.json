@@ -1,0 +1,90 @@
+{
+  "files": [
+    "dist/src/**",
+    "!dist/src/**/*.test.*",
+    "!dist/src/**/*.test-d.*",
+    "src/**",
+    "!src/**/*.test.*",
+    "!src/**/*.test-d.ts",
+    "README.md",
+    "llms.txt",
+    "CHANGELOG.md",
+    "LICENSE",
+    "package.json",
+    "dist/api.json",
+    "dist/errors.json",
+    "dist/api-names/**"
+  ],
+  "name": "@arki/intl",
+  "version": "0.2.0",
+  "description": "Locale helpers for web apps: ISO language lookups, a localized slug registry, message dictionary loading, and a TanStack Start locale provider.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arki-labs/arki.git"
+  },
+  "homepage": "https://arki.dev",
+  "bugs": {
+    "url": "https://github.com/arki-labs/arki/issues"
+  },
+  "keywords": [
+    "arki",
+    "typescript",
+    "intl",
+    "i18n",
+    "locale",
+    "language",
+    "slug"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    "./language": {
+      "types": "./dist/src/language.d.ts",
+      "import": "./dist/src/language.js",
+      "default": "./dist/src/language.js"
+    },
+    "./dictionaries": {
+      "types": "./dist/src/dictionaries.d.ts",
+      "import": "./dist/src/dictionaries.js",
+      "default": "./dist/src/dictionaries.js"
+    },
+    "./types": {
+      "types": "./dist/src/types.d.ts",
+      "import": "./dist/src/types.js",
+      "default": "./dist/src/types.js"
+    },
+    "./react": {
+      "types": "./dist/src/react.d.ts",
+      "import": "./dist/src/react.js",
+      "default": "./dist/src/react.js"
+    },
+    "./tanstack-start": {
+      "types": "./dist/src/integrations/tanstack-start/index.d.ts",
+      "import": "./dist/src/integrations/tanstack-start/index.js",
+      "default": "./dist/src/integrations/tanstack-start/index.js"
+    },
+    "./slug-registry": {
+      "types": "./dist/src/slug-registry.d.ts",
+      "import": "./dist/src/slug-registry.js",
+      "default": "./dist/src/slug-registry.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "dependencies": {
+    "all-iso-language-codes": "^1.0.21",
+    "is-language-code": "^5.2.2",
+    "use-intl": "4.14.9"
+  },
+  "peerDependencies": {
+    "react": "^18 || ^19"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

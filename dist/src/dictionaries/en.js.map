@@ -1,0 +1,1 @@
+{"version":3,"file":"en.js","sourceRoot":"","sources":["../../../src/dictionaries/en.ts"],"names":[],"mappings":"AAAA,eAAe;IACb,aAAa,EAAE;QACb,KAAK,EAAE,OAAO;QACd,WAAW,EAAE,mDAAmD;QAChE,OAAO,EAAE,UAAU;QACnB,QAAQ,EAAE,WAAW;KACtB;IACD,iBAAiB,EAAE;QACjB,KAAK,EAAE,WAAW;QAClB,WAAW,EAAE,wDAAwD;QACrE,OAAO,EAAE,UAAU;KACpB;CACO,CAAC"}

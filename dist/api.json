@@ -1,0 +1,155 @@
+{
+  "package": "@arki/intl",
+  "version": "0.2.0",
+  "entries": [
+    {
+      "subpath": "./dictionaries",
+      "name": "loadMessagesFromMultipleDictionaries",
+      "kind": "variable",
+      "signature": "export declare const loadMessagesFromMultipleDictionaries: (locale: string, defaultLocale: string, featureDictionaries: Record<string, () => Promise<MessageCollection> | MessageCollection>[]) => Promise<MessageCollection>;",
+      "jsdocSummary": ""
+    },
+    {
+      "subpath": "./language",
+      "name": "getAll639_1",
+      "kind": "variable",
+      "signature": "export declare const getAll639_1: () => string[];",
+      "jsdocSummary": ""
+    },
+    {
+      "subpath": "./language",
+      "name": "getAll639_2B",
+      "kind": "variable",
+      "signature": "export declare const getAll639_2B: () => string[];",
+      "jsdocSummary": ""
+    },
+    {
+      "subpath": "./language",
+      "name": "getAll639_2T",
+      "kind": "variable",
+      "signature": "export declare const getAll639_2T: () => string[];",
+      "jsdocSummary": ""
+    },
+    {
+      "subpath": "./language",
+      "name": "getAll639_3",
+      "kind": "variable",
+      "signature": "export declare const getAll639_3: () => string[];",
+      "jsdocSummary": ""
+    },
+    {
+      "subpath": "./language",
+      "name": "getEnglishName",
+      "kind": "variable",
+      "signature": "export declare const getEnglishName: (code: string) => string | null;",
+      "jsdocSummary": ""
+    },
+    {
+      "subpath": "./language",
+      "name": "getIsoCodesFromNativeName",
+      "kind": "variable",
+      "signature": "export declare const getIsoCodesFromNativeName: (nativeName: string, normalizeName?: boolean) => IsoType[] | null;",
+      "jsdocSummary": ""
+    },
+    {
+      "subpath": "./language",
+      "name": "getName",
+      "kind": "variable",
+      "signature": "export declare const getName: (code: string, language?: string) => string | null;",
+      "jsdocSummary": ""
+    },
+    {
+      "subpath": "./language",
+      "name": "getNativeName",
+      "kind": "variable",
+      "signature": "export declare const getNativeName: (code: string) => string | null;",
+      "jsdocSummary": ""
+    },
+    {
+      "subpath": "./language",
+      "name": "isLanguageCode",
+      "kind": "variable",
+      "signature": "export declare const isLanguageCode: (value: string) => { res: true; message: null; } | { res: false; message: string; };",
+      "jsdocSummary": "Checks a BCP 47 tag such as `en-US` against the language lists. Returns the `is-language-code` result."
+    },
+    {
+      "subpath": "./language",
+      "name": "isValid",
+      "kind": "variable",
+      "signature": "export declare const isValid: (code: string, availableIsoTypes?: IsoType[] | null, moreInfo?: boolean) => boolean | { iso: \"639-1\" | \"639-2B\" | \"639-2T\" | \"639-3\" | null; found: boolean; };",
+      "jsdocSummary": ""
+    },
+    {
+      "subpath": "./language",
+      "name": "LanguageIsoCode",
+      "kind": "type",
+      "signature": "export type IsoType = keyof typeof all;",
+      "jsdocSummary": ""
+    },
+    {
+      "subpath": "./react",
+      "name": "LinkComponent",
+      "kind": "type",
+      "signature": "export type LinkComponent = ComponentType<AnchorHTMLAttributes<HTMLAnchorElement> & { href: string; }>;",
+      "jsdocSummary": "A framework-agnostic link component type compatible with Next.js Link, TanStack Router Link, and any other router that renders an anchor element."
+    },
+    {
+      "subpath": "./slug-registry",
+      "name": "SlugRegistry",
+      "kind": "class",
+      "signature": "export declare class SlugRegistry { /** resourceId → locale → slug */ private readonly byId; /** `${locale}:${scope ?? ''}:${slug}` → resourceId */ private readonly bySlug; constructor(slugs: LocalizedResourceSlug[]); /** Forward lookup: resourceId + locale → slug */ getSlug(resourceId: string, locale: string): string | undefined; /** * Reverse lookup: (slug, locale, scope?) → resourceId. * * Pass `scope` (the URL format segment, e.g. `'json'`, `'werkzeuge'`) to * disambiguate slugs that are the same across multiple formats. */ getResourceId(slug: string, locale: string, scope?: string): string | undefined; /** * Maps an English tool URL to its localized equivalent. * * Example: `('/json/formatter/', 'de', 'en')` → `'/de/json/formatierer/'` * The last path segment (the tool action) is replaced with the translated slug. * Format segments (e.g., `json`, `yaml`) are kept as-is. */ getLocalizedUrl(resourceId: string, targetLocale: string, defaultLocale: string, englishUrl: string): string; private key; }",
+      "jsdocSummary": "Bidirectional registry that maps resource IDs to localized slugs and back."
+    },
+    {
+      "subpath": "./tanstack-start",
+      "name": "AppLocaleProvider",
+      "kind": "variable",
+      "signature": "export declare const AppLocaleProvider: ({ locale, messages, timeZone, children, }: { locale?: string; messages?: MessageBag; /** * Explicit IANA time zone forwarded to use-intl. Defaults to `'UTC'` for * deterministic SSR; pass an app's canonical zone if dates must display in a * specific region. */ timeZone?: string; children: ReactNode; }) => import(\"react\").JSX.Element;",
+      "jsdocSummary": "Drop-in intl provider for TanStack Start apps."
+    },
+    {
+      "subpath": "./tanstack-start",
+      "name": "hasLocale",
+      "kind": "function",
+      "signature": "export default function hasLocale<LocaleType extends Locale>(locales: ReadonlyArray<LocaleType>, candidate: unknown): candidate is LocaleType;",
+      "jsdocSummary": "Checks if a locale exists in a list of locales."
+    },
+    {
+      "subpath": "./tanstack-start",
+      "name": "LocaleProvider",
+      "kind": "variable",
+      "signature": "export declare const LocaleProvider: ({ locale, messages, timeZone, children, }: { locale?: string; messages?: Record<string, unknown>; /** * Explicit IANA time zone for use-intl date/number formatting. Required for * deterministic SSR: without it, use-intl falls back to the runtime time zone * (UTC in Docker, local on the client) and emits `ENVIRONMENT_FALLBACK`, * risking hydration mismatches. Defaults to `'UTC'`. */ timeZone?: string; children: React.ReactNode; }) => import(\"react\").JSX.Element;",
+      "jsdocSummary": "Provides locale to TanStack Start apps."
+    },
+    {
+      "subpath": "./tanstack-start",
+      "name": "useLocale",
+      "kind": "variable",
+      "signature": "export declare const useLocale: () => string;",
+      "jsdocSummary": ""
+    },
+    {
+      "subpath": "./tanstack-start",
+      "name": "useTranslations",
+      "kind": "function",
+      "signature": "export default function useTranslations<NestedKey extends NamespaceKeys<Messages, NestedKeyOf<Messages>> = never>(namespace?: NestedKey): ReturnType<typeof createTranslator<Messages, NestedKey>>;",
+      "jsdocSummary": "Translates messages from the given namespace by using the ICU syntax. See https://formatjs.io/docs/core-concepts/icu-syntax."
+    },
+    {
+      "subpath": "./types",
+      "name": "AppLocaleConfig",
+      "kind": "type",
+      "signature": "export type AppLocaleConfig = { /** ISO 639-1 code (e.g., 'en', 'de') */ locale: string; /** BCP 47 language tag for Intl APIs (e.g., 'en-US', 'de-DE') */ languageTag: string; /** Preferred measurement system for this locale */ measurementSystem: 'metric' | 'imperial'; /** Default ISO 4217 currency code for this locale (e.g., 'USD', 'EUR') */ defaultCurrency: string; /** Whether this locale is published and served publicly */ publishable: boolean; };",
+      "jsdocSummary": "Configuration for a single locale supported by an app."
+    },
+    {
+      "subpath": "./types",
+      "name": "LocalizedResourceSlug",
+      "kind": "type",
+      "signature": "export type LocalizedResourceSlug<Kind extends string = string> = { /** Stable English key used internally (e.g., 'bmi-calculator') */ resourceId: string; /** The kind of resource this slug represents; an app names its own kinds through `Kind` */ resourceKind: Kind; /** The locale this slug belongs to */ locale: string; /** The localized public slug (e.g., 'bmi-rechner' for German) */ slug: string; /** * Optional scope for disambiguation when the same slug appears under * multiple URL segments (e.g., 'formatierer' under 'json', 'yaml', 'csv'). * For tool apps this is the format segment of the URL (e.g., 'json', 'yaml', * 'werkzeuge'). When present, slug lookup is scoped to this value. */ scope?: string; };",
+      "jsdocSummary": "Maps a stable internal resource ID + locale to its localized public slug."
+    }
+  ],
+  "groups": [],
+  "errorCodes": []
+}
