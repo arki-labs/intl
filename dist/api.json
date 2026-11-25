@@ -1,12 +1,19 @@
 {
   "package": "@arki/intl",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "entries": [
+    {
+      "subpath": "./dictionaries",
+      "name": "DictionaryLoadFailed",
+      "kind": "variable",
+      "signature": "export declare const DictionaryLoadFailed: import(\"@arki/failure\").FailureDefinition<\"intl.dictionary_load_failed\", undefined>; ; export type DictionaryLoadFailed = ReturnType<typeof DictionaryLoadFailed>;",
+      "jsdocSummary": "A dictionary could not be loaded: a chunk failed to download or import, or a feature loader rejected. The cause is on the failure; no partial messages are returned. A {@link DictionaryLoadFailed} failure value."
+    },
     {
       "subpath": "./dictionaries",
       "name": "loadMessagesFromMultipleDictionaries",
       "kind": "variable",
-      "signature": "export declare const loadMessagesFromMultipleDictionaries: (locale: string, defaultLocale: string, featureDictionaries: Record<string, () => Promise<MessageCollection> | MessageCollection>[]) => Promise<MessageCollection>;",
+      "signature": "export declare const loadMessagesFromMultipleDictionaries: (locale: string, defaultLocale: string, featureDictionaries: Record<string, () => Promise<MessageCollection> | MessageCollection>[]) => Promise<MessageCollection | DictionaryLoadFailed>;",
       "jsdocSummary": ""
     },
     {
@@ -151,5 +158,7 @@
     }
   ],
   "groups": [],
-  "errorCodes": []
+  "errorCodes": [
+    "intl.dictionary_load_failed"
+  ]
 }

@@ -1,7 +1,19 @@
+import { defineFailure } from '@arki/failure';
 const generalDictionaries = {
     en: () => import('./dictionaries/en.js').then(mod => mod.default),
     de: () => import('./dictionaries/de.js').then(mod => mod.default),
 };
+/**
+ * A dictionary could not be loaded: a chunk failed to download or import, or a feature loader rejected. The
+ * cause is on the failure; no partial messages are returned.
+ * @fix Check the network and the deployed dictionary chunks, then load again.
+ * @verify bun run test -- src/dictionaries.test.ts
+ */
+export const DictionaryLoadFailed = defineFailure('intl.dictionary_load_failed', {
+    status: 503,
+    message: 'A message dictionary failed to load.',
+    remediation: 'Check the network and the deployed dictionary chunks, then load again.',
+});
 function deepMerge(target, source) {
     const output = { ...target };
     for (const key in source) {
@@ -22,8 +34,14 @@ export const loadMessagesFromMultipleDictionaries = async (locale, defaultLocale
             : Object.hasOwn(dictionary, defaultLocale)
                 ? dictionary[defaultLocale]
                 : undefined;
-        if (load !== undefined)
+        if (load === undefined)
+            continue;
+        try {
             messages = deepMerge(messages, await load());
+        }
+        catch (error) {
+            return DictionaryLoadFailed({ cause: error });
+        }
     }
     return messages;
 };

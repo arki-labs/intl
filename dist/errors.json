@@ -1,1 +1,11 @@
-[]
+[
+  {
+    "code": "intl.dictionary_load_failed",
+    "package": "@arki/intl",
+    "kind": "failure",
+    "what": "A dictionary could not be loaded: a chunk failed to download or import, or a feature loader rejected. The cause is on the failure; no partial messages are returned.",
+    "fix": "Check the network and the deployed dictionary chunks, then load again.",
+    "verify": "bun run test -- src/dictionaries.test.ts",
+    "source": "src/dictionaries.ts:14"
+  }
+]
